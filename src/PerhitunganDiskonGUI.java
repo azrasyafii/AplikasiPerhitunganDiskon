@@ -58,6 +58,11 @@ public class PerhitunganDiskonGUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("MASUKKAN HARGA");
 
+        txtHarga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtHargaMouseClicked(evt);
+            }
+        });
         txtHarga.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtHargaKeyTyped(evt);
@@ -258,9 +263,9 @@ public class PerhitunganDiskonGUI extends javax.swing.JFrame {
         txtHasil.setText(String.format("%.2f", hargaSetelahDiskon));
         txtHemat.setText(String.format("%.2f", totalDiskon));
 
-        // Tambahkan riwayat
-        String riwayat = String.format("Harga: %.2f, Diskon: %d%%, Kupon: %s, Hemat: %.2f\n",
-                                       harga, diskon, kodeKupon.isEmpty() ? "-" : kodeKupon, totalDiskon);
+          // Tambahkan riwayat
+        String riwayat = String.format("Harga: %.2f, Diskon: %d%%, Kupon: %s, Hemat: %.2f, Harga Akhir: %.2f\n",
+                                       harga, diskon, kodeKupon.isEmpty() ? "-" : kodeKupon, totalDiskon, hargaSetelahDiskon);
         txtRiwayat.append(riwayat);
 
     } catch (NumberFormatException e) {
@@ -313,6 +318,11 @@ public class PerhitunganDiskonGUI extends javax.swing.JFrame {
     int diskon = Integer.parseInt(diskonText.replaceAll("[^0-9]", ""));
     sliderDiskon.setValue(diskon);
     }//GEN-LAST:event_cmbDiskonActionPerformed
+
+    private void txtHargaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHargaMouseClicked
+        // Kosongkan isi text field ketika diklik
+    txtHarga.setText("");
+    }//GEN-LAST:event_txtHargaMouseClicked
 
     /**
      * @param args the command line arguments

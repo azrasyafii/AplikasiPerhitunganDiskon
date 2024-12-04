@@ -162,6 +162,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtHarga">
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtHargaMouseClicked"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHargaKeyTyped"/>
           </Events>
         </Component>
